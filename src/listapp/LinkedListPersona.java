@@ -11,7 +11,7 @@ import java.util.NoSuchElementException;
  *
  * @author mchara
  */
-public class LinkedListPersona {
+public class LinkedListPersona  {
     private Nodo inicio;
 
     private int tamano = 0;
@@ -123,4 +123,20 @@ public class LinkedListPersona {
         
         anterior.setSiguiente(actual.getSiguiente());
     }
+
+    @Override
+    public String toString() {
+        String str = "";
+        Nodo tmp = inicio;
+        while(tmp != null){
+            
+            //str = tmp.getPersona().getCod() + ". " + tmp.getPersona().getCedula() + " " + tmp.getPersona().getNombre()
+            
+            tmp = tmp.getSiguiente();
+        }
+        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+    
 }
