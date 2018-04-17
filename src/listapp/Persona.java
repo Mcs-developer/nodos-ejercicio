@@ -10,10 +10,25 @@ package listapp;
  * @author mchara
  */
 public class Persona {
-   private String name;
+   private int cod;
+   private String cedula;
+   private String nombre;
+   private String apellido;
+   private String sexo;
 
-    public Persona(String name) {
-        this.name = name;
+    public Persona(int cod, String cedula, String nombre, String apellido, String sexo) {
+        this.cod = cod;
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.sexo = sexo;
+    }
+
+  
+    
+    @Override
+    public boolean equals(Object obj) {
+        return ((Persona)obj).cod == this.cod;
     }
    
     

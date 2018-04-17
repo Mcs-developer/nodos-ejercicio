@@ -14,7 +14,7 @@ import java.util.NoSuchElementException;
 public class LinkedListPersona {
     private Nodo inicio;
 
-    private int tamano;
+    private int tamano = 0;
     
     public void adicionarAlInicio(Persona p) {
         inicio = new Nodo(p,inicio);
@@ -30,7 +30,9 @@ public class LinkedListPersona {
     
     public Persona quitarAlInicio(){
         inicio = inicio.getSiguiente();
+        tamano--;
         return this.obtenerPrimero();
+        
     }
     
     
@@ -41,8 +43,9 @@ public class LinkedListPersona {
             Nodo tmp = inicio;
             while(tmp.getSiguiente() != null) tmp = tmp.getSiguiente();
             tmp.setSiguiente(new Nodo(p, null));
+            tamano++;
         }
-        tamano++;
+        
     }
     
     public Persona obternerUltimo(){
