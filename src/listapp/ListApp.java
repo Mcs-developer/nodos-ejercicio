@@ -63,12 +63,21 @@ public class ListApp {
                                 }
                             }
                         }
+                        id++;
                         break;
                     case "5":
+                        lp.quitarAlInicio();
+                        JOptionPane.showMessageDialog(null, "Primera persona eliminada");
                         break;
                     case "6":
+                        lp.quitarAlFinal();
+                        JOptionPane.showMessageDialog(null, "Ultima persona eliminada");
                         break;
                     case "7":
+                        String posicion = JOptionPane.showInputDialog("Que persona desea eliminar ?\n...Mostrar lista aqui...");
+                        if(isInteger(posicion)){
+                            lp.eliminarNodo(new Persona(Integer.parseInt(posicion), null, null, null, null));
+                        }
                         break;
                     default:
                         JOptionPane.showMessageDialog(null, "Opción no encontrada");
