@@ -14,7 +14,7 @@ import java.util.NoSuchElementException;
 public class LinkedListPersona  {
     private Nodo inicio;
 
-    private int tamano = 0;
+    public int tamano = 0;
     
     public void adicionarAlInicio(Persona p) {
         inicio = new Nodo(p,inicio);
@@ -123,6 +123,39 @@ public class LinkedListPersona  {
         
         anterior.setSiguiente(actual.getSiguiente());
     }
+    
+    public Persona getPersona(Persona p){
+        if(inicio.getPersona().equals(p)){
+           
+            return inicio.getPersona();
+        }
+        
+        Nodo tmp = inicio.getSiguiente();
+        
+        while(tmp != null && !tmp.getPersona().equals(p)){
+            tmp = tmp.getSiguiente();
+        }
+        
+        if(tmp == null)
+            throw new RuntimeException("No se puede actualizar");
+        
+        return tmp.getPersona();
+    }
+    
+    public boolean contiene(String cedula){
+        if (inicio == null) throw new IndexOutOfBoundsException();
+        
+        Nodo tmp = inicio;
+        while(tmp != null){
+            if(tmp.getPersona().getCedula().equals(cedula))
+                return true;
+            tmp = tmp.getSiguiente();
+        }
+        
+       return false;
+    }
+    
+    
 
     @Override
     public String toString() {
@@ -130,13 +163,15 @@ public class LinkedListPersona  {
         Nodo tmp = inicio;
         while(tmp != null){
             
-            //str = tmp.getPersona().getCod() + ". " + tmp.getPersona().getCedula() + " " + tmp.getPersona().getNombre()
-            
+            str += tmp.getPersona().getCod() + ". " + 
+                  tmp.getPersona().getCedula() + " - " + 
+                  tmp.getPersona().getNombre() + " " + 
+                  tmp.getPersona().getApellido() + " - " +
+                  tmp.getPersona().getSexo() + "\n";
             tmp = tmp.getSiguiente();
+            
         }
-        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+        return str; //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
     
 }
